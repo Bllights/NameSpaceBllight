@@ -1,6 +1,7 @@
 /*
-¿ÀÈÄ 5:48 2016-06-25 Make by Bllight 
+5:48 2016-06-25 Make by Bllight
 */
+//ì¶”ê°€ : ê¹Šì´ ë©”ëª¨ë¦¬ì œê±°
 
 #pragma once
 
@@ -13,53 +14,59 @@ namespace Bllight
 	template <typename T>
 	class TNode{
 	private:
-		int Parentnumber;//parent¿¡¼­ ÀÚ½ÅÀÌ ¸î¹øÀÎÁö
+		int Parentnumber;//parentì—ì„œ ëª‡ë²ˆì§¸ ì¸ì§€
 		int NumberChild;
 
 	protected:
-		TNode* Parents;//nullptrÀÌ¸é »óÀ§°èÃş
+		TNode* Parents;//nullptrì´ë©´ ê¹Šì´ =1
 		TNode* Child[100];
 
+		int Depth;
 		T Mine;
 	#define DPushbackChild
 		void PushBackChild(int back);
 
 	public:
+	#define Getter
+		int GetDepth(){return Depth;}
+		T GetMine(){return Mine;}
+
+
 	#define DSearchObjectNumber
 		int SearchObjectNumber(TNode* object);
 		/*
-		object¸¦ ÀÌ¿ëÇØ¼­ Child¿¡ ÀÖ´Â ¹øÈ£¸¦ Ã£¾ÆÁİ´Ï´Ù.
-		ÀÚ½Ä³ëµå¿¡¼­ ºÎ¸ğ³ëµåÇÑÅ× ¹øÈ£¸¦ ¹ŞÀ» ¶§ »ç¿ë
+		objectë¥¼ ì‚¬ìš©í•˜ì—¬ Childê°€ ëª‡ë²ˆì§¸ì¸ì§€ ì•Œ ìˆ˜ ìˆë‹¤.
+		ìì‹ë…¸ë“œê°€ ë¶€ëª¨ë…¸ë“œì—ì„œ ëª‡ë²ˆì§¸ì¸ì§€ ì•Œê³  ì‹¶ì„ë•Œ ì‚¬ìš©
 		*/
 	#define DRemove
 		void RemoveChild(int numberChild);
 		void RemoveObject(TNode* object);
 		/*
-		numberChild ¹øÈ£¿Í object¸¦ ÀÌ¿ëÇØ ÀÚ½Ä³ëµå¸¦ ¾ø¾Û´Ï´Ù.
-		ºÎ¸ğÅ¬·¡½º¿¡¼­ ÇÊ¿ä¾ø´Â ÀÚ½Ä³ëµå¸¦ ¹ö¸±¶§ »ç¿ë(°¡ÁöÄ¡±â)
+		numberChildë¥¼ ì‚¬ìš©í•˜ì—¬ objectë¥¼ ì œê±° ê°€ëŠ¥
+
 		*/
 	#define DCreate
 		static TNode<T>* Create(T mine);
 		static TNode<T>* Create();
 		/*
-		ÇÑ¹ø¿¡ ¸¸µé¶§ »ç¿ë
+
 		*/
 	#define DTNode
 		TNode();
 		TNode(T mine);
 		/*
-		»ı¼ºÀÚ
+
 		*/
 	#define DMakeChild
 		void MakeChild(T childT);
 		void MakeChild(TNode* childT);
 		/*
-		ÀÚ½ÄÀ» ¸¸µé¶§ »ç¿ë
+
 		*/
 	#define DSetParent
 		void SetParent(TNode* ParentT);
 		/*
-		ºÎ¸ğ¸¦ ÁöÁ¤ÇÒ¶§ »ç¿ë
+
 		*/
 	};
 }

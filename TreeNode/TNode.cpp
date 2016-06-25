@@ -72,6 +72,7 @@ namespace Bllight{
 	TNode<T>::TNode(){
 		Parentnumber=0;
 		Parents=nullptr;
+		Depth=1;
 		Mine=0;//int
 		NumberChild=0;
 	}
@@ -79,6 +80,7 @@ namespace Bllight{
 	template <typename T>TNode<T>::TNode(T mine){
 		Parentnumber=0;
 		Parents=nullptr;
+		Depth=1;
 		Mine=mine;
 		NumberChild=0;
 	}
@@ -88,6 +90,7 @@ namespace Bllight{
 	template <typename T>
 	void TNode<T>::SetParent(TNode<T>* ParentT){
 		this->Parents=ParentT;
+		this->Depth=ParetnT->Depth+1;
 	}
 #endif
 

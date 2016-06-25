@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-¿ÀÈÄ 5:48 2016-06-25 Make by Bllight 
+5:48 2016-06-25 Make by Bllight
 */
 
 #include "TNode.h"

@@ -21,13 +21,13 @@ namespace Bllight{
     BLSprite* BLSprite::Create(std::string filepath){
         Scale=1;
         Animate=false;
-        return __super::create(filepath);
+        return super::create(filepath);
     }
 
     BLSprite* BLSprite::Create(std::string filepath,int ZOrder){
         Scale=1;
         Animate=false;
-        return __super::create(filepath,ZOrder);
+        return super::create(filepath,ZOrder);
     }
 
     void BLSprite::SetParent(Node* node){

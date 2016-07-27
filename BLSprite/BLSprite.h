@@ -5,18 +5,33 @@
 USING_NS_CC;
 
 namespace Bllight{
-    class BLSPrite : public Sprite{
+    class BLSprite : public Sprite{
     private:
         typedef Sprite super;
-        Texture2D* Animation[10];
-        int Animation_Number;
+
+        #pragma region Animations
+            bool Animate;
+            Texture2D* Animation[10];
+            int Animation_Number;//max
+            int Ani_Nownumber;
+
+            int Ani_timer;
+            int Ani_maxtime;
+        #pragma endregion
 
         int Scale;//1
+
+        Node* Parents;
     public
+        void SetParent(Node* node);
+
+
         void SetAnimationImage(Texture2D* image[]);
         int GetAnimationNum(){return Animation_Number;}
 
-        Bllight* Create(std::string filepath);
-        Bllight* Create(std::string filepath,int ZOrder);
+        void SetAnimateTime(int a);
+
+        static BLSprite* Create(std::string filepath);
+        static BLSprite* Create(std::string filepath,int ZOrder);
     };
 }
